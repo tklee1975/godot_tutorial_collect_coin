@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bif75g5etf1ff"]
+
+[ext_resource type="Script" uid="uid://cngk1dd4kmwhb" path="res://Scripts/hud.gd" id="1_k5de2"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_k5de2")
+
+[node name="UIContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UIContainer"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="TimeLabel" type="Label" parent="UIContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 70
+text = "Time: 000"
+
+[node name="Control" type="Control" parent="UIContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="UIContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Score: 000"
+
+[node name="HighScoreLabel" type="Label" parent="UIContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "High Score: 0"
+horizontal_alignment = 2
