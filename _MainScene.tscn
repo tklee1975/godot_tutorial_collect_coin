@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx2kyt5dah3x1"]
+[gd_scene load_steps=9 format=3 uid="uid://bx2kyt5dah3x1"]
 
 [ext_resource type="PackedScene" uid="uid://dtaltjh5pygvd" path="res://GameManager.tscn" id="1_118as"]
+[ext_resource type="Texture2D" uid="uid://0v3c1uhorbc3" path="res://Sprites/Backgrounds/background.png" id="1_fsea7"]
 [ext_resource type="PackedScene" uid="uid://duucfxcccccte" path="res://Coin.tscn" id="1_xob67"]
 [ext_resource type="PackedScene" uid="uid://dmv8puij8lf14" path="res://Player.tscn" id="2_ygo0k"]
 [ext_resource type="Script" uid="uid://bfx0oegi0um8w" path="res://Scripts/player.gd" id="3_118as"]
@@ -14,6 +15,11 @@
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.270588, 0.478431, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(974, 538)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_fsea7")
 
 [node name="Coin" parent="." instance=ExtResource("1_xob67")]
 position = Vector2(699, 448)

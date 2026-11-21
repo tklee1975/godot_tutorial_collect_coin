@@ -1,42 +1,62 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmv8puij8lf14"]
+[gd_scene load_steps=10 format=3 uid="uid://dmv8puij8lf14"]
 
-[ext_resource type="Texture2D" uid="uid://0k168fl2jxc" path="res://Sprites/Player/alienPink_stand.png" id="1_kne1u"]
-[ext_resource type="Texture2D" uid="uid://ohnectcl047j" path="res://Sprites/Player/alienPink_walk1.png" id="2_e80uo"]
-[ext_resource type="Texture2D" uid="uid://b5eyso0hjiyme" path="res://Sprites/Player/alienPink_walk2.png" id="3_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://cqi1c1fer3o74" path="res://Sprites/Shapes/circle.png" id="1_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://d3lxtyo3xevvs" path="res://Sprites/PlayerV2/ player-pink-idle-1.png" id="1_e80uo"]
+[ext_resource type="Texture2D" uid="uid://h1h1xnbxbvj8" path="res://Sprites/PlayerV2/ player-pink-idle-2.png" id="2_cxr5p"]
+[ext_resource type="Texture2D" uid="uid://brhyrlxn3h8t7" path="res://Sprites/PlayerV2/ player-pink-walk-1.png" id="3_tdg3f"]
+[ext_resource type="Texture2D" uid="uid://dsmmb5tilmfdo" path="res://Sprites/PlayerV2/ player-pink-walk-2.png" id="4_dtqjt"]
+[ext_resource type="Texture2D" uid="uid://rg1r386usvbq" path="res://Sprites/PlayerV2/ player-pink-walk-3.png" id="5_5ncpa"]
+[ext_resource type="Texture2D" uid="uid://bbaxflc0lelur" path="res://Sprites/PlayerV2/ player-pink-walk-4.png" id="6_wi0c6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tdg3f"]
 animations = [{
 "frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_e80uo")
+}, {
 "duration": 1.0,
-"texture": ExtResource("1_kne1u")
+"texture": ExtResource("2_cxr5p")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_e80uo")
+"texture": ExtResource("3_tdg3f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cxr5p")
+"texture": ExtResource("4_dtqjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5ncpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wi0c6")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 8.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kne1u"]
-size = Vector2(108.5, 121.75)
+size = Vector2(69, 106)
 
 [node name="Player" type="CharacterBody2D"]
 
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.368627)
+position = Vector2(1, 0)
+scale = Vector2(0.181875, 0.056875)
+texture = ExtResource("1_dtqjt")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -130)
+position = Vector2(-1, -60)
+scale = Vector2(0.438144, 0.438144)
 sprite_frames = SubResource("SpriteFrames_tdg3f")
 animation = &"idle"
-frame_progress = 0.42713
+frame_progress = 0.105706
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -63.875)
+position = Vector2(2.5, -56)
 shape = SubResource("RectangleShape2D_kne1u")

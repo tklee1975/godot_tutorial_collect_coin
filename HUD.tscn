@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bif75g5etf1ff"]
+[gd_scene load_steps=4 format=3 uid="uid://bif75g5etf1ff"]
 
 [ext_resource type="Script" uid="uid://cngk1dd4kmwhb" path="res://Scripts/hud.gd" id="1_k5de2"]
+[ext_resource type="Texture2D" uid="uid://cugeloj8sl4e5" path="res://Sprites/GUI/hud_panel.png" id="2_efote"]
+[ext_resource type="FontFile" uid="uid://du1haf8fokvt6" path="res://Fonts/BalsamiqSans-Bold.ttf" id="3_vow1y"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_k5de2")
@@ -13,32 +15,84 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UIContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_bottom = 283.0
 grow_horizontal = 2
 
-[node name="TimeLabel" type="Label" parent="UIContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UIContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="TimePanel" type="TextureRect" parent="UIContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_efote")
+
+[node name="TimeLabel" type="Label" parent="UIContainer/VBoxContainer/HBoxContainer/TimePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -100.0
+offset_right = 126.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vow1y")
 theme_override_font_sizes/font_size = 70
 text = "Time: 000"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Control" type="Control" parent="UIContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="UIContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UIContainer/HBoxContainer"]
+[node name="ScorePanel" type="TextureRect" parent="UIContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+texture = ExtResource("2_efote")
+flip_h = true
 
-[node name="ScoreLabel" type="Label" parent="UIContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
+[node name="ScoreLabel" type="Label" parent="UIContainer/VBoxContainer/HBoxContainer/ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -46.0
+offset_right = 213.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_vow1y")
 theme_override_font_sizes/font_size = 70
 text = "Score: 000"
 
-[node name="HighScoreLabel" type="Label" parent="UIContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UIContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="Control3" type="Control" parent="UIContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HighScoreLabel" type="Label" parent="UIContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 106)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34, 0.23664, 0.2108, 1)
+theme_override_fonts/font = ExtResource("3_vow1y")
 theme_override_font_sizes/font_size = 60
-text = "High Score: 0"
+text = "HIGH: 0"
 horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UIContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2

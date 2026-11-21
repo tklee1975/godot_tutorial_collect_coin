@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://duucfxcccccte"]
+[gd_scene load_steps=7 format=3 uid="uid://duucfxcccccte"]
 
-[ext_resource type="Texture2D" uid="uid://miib4h2hnx3" path="res://Sprites/Coins/coinGold.png" id="1_h5dih"]
 [ext_resource type="Script" uid="uid://b6lcst5b2nf4j" path="res://Scripts/coin.gd" id="1_ufda5"]
+[ext_resource type="Texture2D" uid="uid://cqi1c1fer3o74" path="res://Sprites/Shapes/circle.png" id="2_fj540"]
+[ext_resource type="Texture2D" uid="uid://ea8eea3u7365" path="res://Sprites/Coins/coin-v2.png" id="2_ufda5"]
 [ext_resource type="AudioStream" uid="uid://cxsyoq2x2f7g1" path="res://Sounds/collect_coin.mp3" id="3_fj540"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6wppn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_h5dih")
+"texture": ExtResource("2_ufda5")
 }],
 "loop": true,
 "name": &"gold",
@@ -16,20 +17,24 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5dih"]
-size = Vector2(92.7169, 82.3072)
+size = Vector2(92.7169, 140.095)
 
 [node name="Coin" type="Area2D"]
 script = ExtResource("1_ufda5")
 
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.239216)
+scale = Vector2(0.205, 0.0557399)
+texture = ExtResource("2_fj540")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.999998, -37)
-scale = Vector2(1.12891, 1.04297)
+position = Vector2(0, -42)
+scale = Vector2(0.536427, 0.495591)
 sprite_frames = SubResource("SpriteFrames_6wppn")
 animation = &"gold"
-frame_progress = 0.954617
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.999999, -37)
+position = Vector2(0, -41.5786)
 scale = Vector2(0.648438, 0.648438)
 shape = SubResource("RectangleShape2D_h5dih")
 

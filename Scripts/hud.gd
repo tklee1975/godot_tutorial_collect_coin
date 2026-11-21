@@ -2,9 +2,9 @@ extends CanvasLayer
 
 # --- 節點引用 ---
 # 使用 @onready 確保在場景載入完成後取得 UI 節點
-@onready var score_label: Label = $UIContainer/HBoxContainer/VBoxContainer/ScoreLabel
-@onready var time_label: Label = $UIContainer/HBoxContainer/TimeLabel
-@onready var high_score_label: Label = $UIContainer/HBoxContainer/VBoxContainer/HighScoreLabel
+@onready var score_label: Label = $UIContainer/VBoxContainer/HBoxContainer/ScorePanel/ScoreLabel
+@onready var time_label: Label = $UIContainer/VBoxContainer/HBoxContainer/TimePanel/TimeLabel
+@onready var high_score_label: Label = $UIContainer/VBoxContainer/HBoxContainer2/HighScoreLabel
 
 # 新增音效組件引用
 @onready var record_audio_player: AudioStreamPlayer2D = $NewRecordAudioPlayer
@@ -25,7 +25,7 @@ func _ready() -> void:
 ## 更新分數的接口
 func update_score_display(new_score: int) -> void:
 	_current_score = new_score
-	score_label.text = "Score: %d" % _current_score
+	score_label.text = "SCORE: %d" % _current_score
 
 ## 增加分數的接口 (方便 Coin 等物品調用)
 func add_score(amount: int) -> void:
@@ -36,9 +36,7 @@ func add_score(amount: int) -> void:
 func update_time_display(seconds: int) -> void:
 	_current_time = seconds
 	# 將秒數格式化為 00:00 格式 (可選)
-	var mins = int(_current_time / 60)
-	var secs = _current_time % 60
-	time_label.text = "Time: %02d:%02d" % [mins, secs]
+	time_label.text = "TIME: %03d" % [seconds]
 	
 	# 如果你只需要顯示純數字，可以使用這行：
 	# time_label.text = "Time: " + str(_current_time)
@@ -53,7 +51,7 @@ func play_score_animation() -> void:
 
 ## 更新最高分顯示
 func update_high_score_display(value: int) -> void:
-	high_score_label.text = "High: %d" % value
+	high_score_label.text = "HI SCORE: %d" % value
 	
 	play_new_record_sound()
 	play_new_record_fx()
